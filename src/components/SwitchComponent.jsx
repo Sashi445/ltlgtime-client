@@ -8,7 +8,7 @@ const SwitchComponent = () => {
 
     const { user } = useContext(userContext);
 
-    return (<> {!user ? <Home /> : <LoginComponent />}</>);
+    return (<> {!user ? <LoginComponent /> : <Home />}</>);
 }
 
 export default SwitchComponent;
