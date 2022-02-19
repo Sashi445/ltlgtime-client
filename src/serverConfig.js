@@ -1,0 +1,1 @@
+export const serverUrl = `https://vast-castle-18459.herokuapp.com/`

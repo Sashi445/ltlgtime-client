@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import LoginComponent from "./components/login";
+import RegisterComponent from "./components/register";
+import { UserProvider, PostsProvider } from "./store";
+import CreatePostPage from "./components/CreatePostPage";
+import Navbar from './components/Navbar';
+import SwitchComponent from './components/SwitchComponent';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <UserProvider>
+        <PostsProvider>
+          <Routes>
+            <Route path="create" exact element={<CreatePostPage/>} />
+            <Route path="login" exact element={<LoginComponent />} />
+            <Route path="register" exact element={<RegisterComponent />} />
+            <Route path="" exact element={<SwitchComponent />} />
+          </Routes>
+        </PostsProvider>
+      </UserProvider>
     </div>
   );
 }
